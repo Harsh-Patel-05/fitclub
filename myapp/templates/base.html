@@ -112,21 +112,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 						</li>
 						{% endif %}
-						{% comment %} <li><a href=" {% url 'blog.html' %} " style="color:white">BLOG</a></li>
+						<li><a href=" {% url 'blog.html' %} " style="color:white">BLOG</a></li>
 						<li><a href=" {% url 'products.html' %} " style="color:white">PRODUCTS</a></li>
-						<li><a href=" {% url 'mail.html' %} " style="color:white">CONTACT US</a></li> {% endcomment %}
+						<li><a href=" {% url 'mail.html' %} " style="color:white">CONTACT US</a></li>
 					</ul>
 				</div>
 				</nav>
 			</div>
 			<div class="header-right">
 				<div class="cart box_1">
-					{% comment %} <a href=" {% url 'checkout.html' %} "> {% endcomment %}
+					<a href=" {% url 'checkout.html' %} ">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
 							<img src=" {% static 'images/cr.png' %} " alt=" " height="20px" width="20px">
 						</h3>
-					{% comment %} </a> {% endcomment %}
+					</a>
 					<p><a href="/checkout" class="simpleCart_empty">Cart</a></p>
 					<div class="clearfix"> </div>
 				</div>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href=" {% url 'index.html' %} " >
+					<span class="glyphicon glyphicon-home" aria-hidden="true" ></span>
+					Home</a></li>
+				<li class="active">Exercise</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!--typography-page -->
+	<div class="container"><br><br><br>
+		<div class="bs-docs-example animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
+			<table class="table" style="width: 100%;border:1px solid black;">
+				<tbody>
+					{% for data in exercises %}
+					<tr style="background-color: white;" >
+						<td ><img src="media/{{ data.e_media }}" width="300px" height="180px"></td></td>
+						<td style="color: black;" ><br><br><br><br>{{ data.e_name }}</td>
+						<td style="color: black;"><br><br><br><br>{{ data.e_reps }}</td>
+						<td style="color: black;" ><br><br><br><br>{{ data.e_sets }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+<!-- //typography-page -->
+{% endblock %}

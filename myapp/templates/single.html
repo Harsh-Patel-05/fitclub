@@ -1,0 +1,781 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<title>FITZEE | Product Detail</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href=" {% static 'css/bootstrap.css' %} " rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static 'css/style.css' %} " rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src=" {% static 'js/jquery.min.js' %} "></script>
+<!-- //js -->
+<!-- cart -->
+<script src=" {% static 'js/simpleCart.min.js' %} "></script>
+<!-- cart -->
+<!-- for bootstrap working -->
+<script type="text/javascript" src=" {% static 'js/bootstrap-3.1.1.min.js' %} "></script>
+<!-- //for bootstrap working -->
+<link href=' //fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic ' rel='stylesheet' type='text/css'>
+<link href=' //fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic ' rel='stylesheet' type='text/css'>
+<!-- timer -->
+<link rel="stylesheet" href=" {% static 'css/jquery.countdown.css' %} " />
+	<link rel="stylesheet" href=" {% static 'css/rate.css' %} " />
+<!-- //timer -->
+<!-- animation-effect -->
+<link href=" {% static 'css/animate.min.css' %} " rel="stylesheet"> 
+<script src=" {% static 'js/wow.min.js' %} "></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+</head>
+	
+<body>
+<!-- header -->
+<div class="header">
+		<div class="container">
+			<div class="header-grid">
+				<div class="header-grid-left animated wow slideInLeft" data-wow-delay=".5s">
+					<ul>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href=" {% static 'mailto:info@example.com' %} ">fitzeeforhealth@gmail.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+91 1234567890</li>
+						{% if request.session.log_user %}
+						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href=" {% url 'logout' %} ">logout</a></li>
+						{% else %}
+						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href=" {% url 'login.html' %} ">Login</a></li>
+						{% endif %}
+						<li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href=" {% url 'register.html' %} ">Register</a></li>
+					</ul>
+				</div>
+				<div class="header-grid-right animated wow slideInRight" data-wow-delay=".5s">
+					<!-- <ul class="social-icons">
+						<li><a href="#" class="facebook"></a></li>
+						<li><a href="#" class="twitter"></a></li>
+						<li><a href="#" class="g"></a></li>
+						<li><a href="#" class="instagram"></a></li>
+					</ul>				 -->
+					<ul class="social-icons">
+						<li><a href="https://www.facebook.com/profile.php?id=100078447043673"><img src=" {% static 'images/face.png' %} "></a>
+							<a href="https://twitter.com/FitzeeH?t=FeZig36XOoYim0RNfjdv6Q&s=03"><img src=" {% static 'images/twitter.png' %} " height="38px" width="38px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<!--							<a href=""><img src=" {% static 'images/google.png' %} " height="38px" width="38px"></a>&nbsp;&nbsp;&nbsp;&nbsp;-->
+							<a href="https://www.instagram.com/fitzee_forhealth/"><img src=" {% static 'images/instagram.png' %} " height="38px" width="38px"></a>
+						</li>
+
+
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="logo-nav">
+				<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".5s">
+					<h1><a href=" {% url 'index.html' %} ">&nbsp;FITZEE <span>Stay Healthy</span></a></h1>
+				</div>
+				<div class="logo-nav-left1">
+					<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header nav_2">
+						<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href=" {% url 'index.html' %} " style="color:white">HOME</a></li>
+							<!-- Mega Menu -->
+							{% if request.session.log_user %}
+							<li class="active">
+								<a href=" {% url 'exercise.html' %} " style="color:white">EXERCISE</a>
+								<!-- <ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+										<div class="col-sm-6">
+											<ul class="multi-column-dropdown">
+												<h5><a href=" {% static 'products.html' %} ">Weight Gain</a></h5>
+												<li><a href=" {% static 'products.html' %} ">Clothing</a></li>
+												<li><a href=" {% static 'products.html' %} ">Wallets</a></li>
+												<li><a href=" {% static 'products.html' %} ">Shoes</a></li>
+												<li><a href=" {% static 'products.html' %} ">Watches</a></li>
+												<li><a href=" {% static 'products.html' %} ">Accessories</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-6">
+											<ul class="multi-column-dropdown">
+												<h5><a href=" {% static 'products.html' %} ">Weight Loose</a></h5>
+												 <li><a href=" {% static 'products.html' %} ">Clothing</a></li>
+												<li><a href=" {% static 'products.html' %} ">Wallets,Bags</a></li>
+												<li><a href=" {% static 'products.html' %} ">Footwear</a></li>
+												<li><a href=" {% static 'products.html' %} ">Watches</a></li>
+												<li><a href=" {% static 'products.html' %} ">Accessories</a></li>
+												<li><a href=" {% static 'products.html' %} ">Jewellery</a></li>
+												<li><a href=" {% static 'products.html' %} ">Beauty & Grooming</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>Kid's Wear</h6>
+												<li><a href=" {% static 'products.html' %} ">Kids Home Fashion</a></li>
+												<li><a href=" {% static 'products.html' %} ">Boy's Clothing</a></li>
+												<li><a href=" {% static 'products.html' %} ">Girl's Clothing</a></li>
+												<li><a href=" {% static 'products.html' %} ">Shoes</a></li>
+												<li><a href=" {% static 'products.html' %} ">Brand Stores</a></li>
+											</ul>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</ul> -->
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">DIET <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-2">
+									<div class="row">
+										<div class="col-sm-6">
+											<ul class="multi-column-dropdown">
+												<h6>vegetarian</h6>
+												<li><a href="/vwg"><b>WEIGHT GAIN</b></a></li>
+												<li><a href="/vwl"><b>WEIGHT LOOSE</b></a></li>
+											</ul>
+										</div>
+										<div class="col-sm-6">
+											<ul class="multi-column-dropdown">
+												<h6>non-vegetarian</h6>
+												<li><a href="/nwg"><b>WEIGHT GAIN</b></a></li>
+												<li><a href="/nwl"><b>WEIGHT LOOSE</b></a></li>
+											</ul>
+										</div>
+										<!--<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>Kid's Wear</h6>
+												<li><a href=" {% static 'products.html' %} ">Kids Home Fashion</a></li>
+												<li><a href=" {% static 'products.html' %} ">Boy's Clothing</a></li>
+												<li><a href=" {% static 'products.html' %} ">Girl's Clothing</a></li>
+												<li><a href=" {% static 'products.html' %} ">Shoes</a></li>
+												<li><a href=" {% static 'products.html' %} ">Brand Stores</a></li>
+											</ul>
+										</div>
+										<div class="clearfix"></div>-->
+									</div>
+								</ul>
+							</li>
+							{% endif %}
+							<li><a href=" {% url 'blog.html' %} " style="color:white">BLOG</a></li>
+							<li><a href=" {% url 'products.html' %} " style="color:white">PRODUCTS</a></li>
+							<li><a href=" {% url 'mail.html' %} " style="color:white">CONTACT US</a></li>
+						</ul>
+					</div>
+					</nav>
+				</div>
+				<!-- <div class="logo-nav-right">
+					<div class="search-box">
+						<div id="sb-search" class="sb-search">
+							<form>
+								<input class="sb-search-input" placeholder="Enter your search term..." type="search" id="search">
+								<input class="sb-search-submit" type="submit" value="">
+								<span class="sb-icon-search"> </span>
+							</form>
+						</div>
+					</div>
+						<!-- search-scripts -->
+						<!-- <script src=" {% static 'js/classie.js' %} "></script>
+						<script src=" {% static 'js/uisearch.js' %} "></script>
+							<script>
+								new UISearch( document.getElementById( 'sb-search' ) );
+							</script> -->
+						<!-- //search-scripts -->
+				<!-- </div> -->
+				<div class="header-right">
+				<div class="cart box_1">
+					<a href=" {% url 'checkout.html' %} ">
+						<h3> <div class="total">
+							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+							<img src=" {% static 'images/cr.png' %} " alt="" / height="20px" width="20px">
+						</h3>
+					</a>
+
+					<p><a href=" {% static 'javascript:;' %} " class="simpleCart_empty">Empty Cart</a></p>
+
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<div class="header-right">
+					{% if request.session.log_user %}
+					<h5 style="color:#97ee0c"> Hello,<label style="color:white">{{ request.session.log_user }}</label></h5>
+
+						<div class="clearfix"> </div>
+						{% endif %}
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //header -->
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href=" {% url 'index.html' %} "><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Product Detail</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- single -->
+	<div class="single">
+		<div class="container">
+			<div class="col-md-4 products-left">
+				<!-- <div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
+					<h3>Filter By Price</h3>
+					<ul class="dropdown-menu1">
+							<li><a href=" {% static '' %} ">								               
+							<div id="slider-range"></div>							
+							<input type="text" id="amount" style="border: 0" />
+							</a></li>	
+					</ul>
+						<script type='text/javascript'>//<![CDATA[  -->
+				<!-- // 		$(window).load(function(){
+				// 		 $( "#slider-range" ).slider({
+				// 				range: true,
+				// 				min: 0,
+				// 				max: 100000,
+				// 				values: [ 10000, 60000 ],
+				// 				slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+				// 				}
+				// 	 });
+				// 	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+				// 		});
+						</script>
+						<script type="text/javascript" src=" {% static 'js/jquery-ui.min.js' %} "></script>
+					
+				</div> -->
+				<div class="categories animated wow slideInUp" data-wow-delay=".5s" style="margin-top: 3.5em;">
+					<h3>Categories</h3>
+					<ul class="cate">
+						<li><a href=" {% url 'products.html' %} ">Powder</a></li>
+						<li><a href=" {% url 'products.html' %} ">Pill</a> </li>
+							<!-- <ul>
+								<li><a href=" {% static 'furniture.html' %} ">Cookware</a> <span>(2)</span></li>
+								<li><a href=" {% static 'furniture.html' %} ">Sofas</a> <span>(5)</span></li>
+								<li><a href=" {% static 'furniture.html' %} ">Dining Tables</a> <span>(1)</span></li>
+								<li><a href=" {% static 'furniture.html' %} ">New Arrivals</a> <span>(0)</span></li>
+								<li><a href=" {% static 'furniture.html' %} ">Home Decore</a> <span>(1)</span></li>
+							</ul> -->
+						<li><a href=" {% url 'products.html' %} ">Juice</a> </li>
+						<li><a href=" {% url 'products.html' %} ">Tea</a> </li>
+						<li><a href=" {% url 'products.html' %} ">Shake</a> </li>
+							<!-- <ul>
+								<li><a href=" {% static 'furniture.html' %} ">Wall Clock</a> <span>(2)</span></li>
+								<li><a href=" {% static 'furniture.html' %} ">New Arrivals</a> <span>(0)</span></li>
+								<li><a href=" {% static 'furniture.html' %} ">Lighting</a> <span>(1)</span></li>
+								<li><a href=" {% static 'furniture.html' %} ">Top Brands</a> <span>(0)</span></li>
+							</ul> -->
+					</ul>
+				</div>
+				<!-- <div class="men-position animated wow slideInUp" data-wow-delay=".5s">
+					<a href=" {% static 'single.html' %} "><img src=" {% static 'images/29.jpg' %} " alt=" " class="img-responsive" /></a>
+					<div class="men-position-pos">
+						<h4>Summer collection</h4>
+						<h5><span>55%</span> Flat Discount</h5>
+					</div>
+				</div> -->
+			</div>
+			
+			<div class="col-md-8 single-right" style="margin-top: 4.8%;">
+				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
+					<div class="flexslider">
+						<ul class="slides">
+							<li data-thumb="images/si.jpg" >
+								<div class="thumb-image"> <img src="/media/{{ item.i_photo }}" data-imagezoom="true" class="img-responsive"> </div>
+							</li>
+							<!-- <li data-thumb="images/si1.jpg">
+								 <div class="thumb-image"> <img src=" {% static 'images/si1.jpg' %} " data-imagezoom="true" class="img-responsive"> </div>
+							</li>
+							<li data-thumb="images/si2.jpg">
+							   <div class="thumb-image"> <img src=" {% static 'images/si2.jpg' %} " data-imagezoom="true" class="img-responsive"> </div>
+							</li>  -->
+						</ul>
+					</div>
+					<!-- flixslider -->
+						<script defer src=" {% static 'js/jquery.flexslider.js' %} "></script>
+						<link rel="stylesheet" href=" {% static 'css/flexslider.css' %} " type="text/css" media="screen" />
+						<script>
+						// Can also be used with $(document).ready()
+						$(window).load(function() {
+						  $('.flexslider').flexslider({
+							animation: "slide",
+							controlNav: "thumbnails"
+						  });
+						});
+						</script>
+					<!-- flixslider -->
+				</div>
+				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
+					<h3>{{ item.i_name }}</h3>
+					<h4>
+<!--						<span class="item_price">{{ item.i_price }}</span>-->
+						Rs.{{ item.i_price }}</h4>
+					<!-- <div class="rating1">
+						<span class="starRating">
+							<input id="rating5" type="radio" name="rating" value="5">
+							<label for="rating5">5</label>
+							<input id="rating4" type="radio" name="rating" value="4">
+							<label for="rating4">4</label>
+							<input id="rating3" type="radio" name="rating" value="3" checked>
+							<label for="rating3">3</label>
+							<input id="rating2" type="radio" name="rating" value="2">
+							<label for="rating2">2</label>
+							<input id="rating1" type="radio" name="rating" value="1">
+							<label for="rating1">1</label>
+						</span>
+					</div> -->
+					<div class="description">
+						<h5><i>Description</i></h5>
+						<p>{{ item.i_desc}}</p>
+					</div>
+					<!-- <div class="color-quality">
+						<div class="color-quality-left">
+							<h5>Color : </h5>
+							<ul>
+								<li><a href="#"><span></span>Red</a></li>
+								<li><a href="#" class="brown"><span></span>Yellow</a></li>
+								<li><a href="#" class="purple"><span></span>Purple</a></li>
+								<li><a href="#" class="gray"><span></span>Violet</a></li>
+							</ul>
+						</div>
+						<div class="color-quality-right">
+							<h5>Quality :</h5>
+							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+								<option value="null">5 Qty</option>
+								<option value="null">6 Qty</option> 
+								<option value="null">7 Qty</option>					
+								<option value="null">10 Qty</option>								
+							</select>
+						</div>
+						<div class="clearfix"> </div>
+					</div> -->
+					<!-- <div class="occasional">
+						<h5>Occasion :</h5>
+						<div class="colr ert">
+							<label class="radio"><input type="radio" name="radio" checked=""><i></i>Casual Wear</label>
+						</div>
+						<div class="colr">
+							<label class="radio"><input type="radio" name="radio"><i></i>Party Wear</label>
+						</div>
+						<div class="colr">
+							<label class="radio"><input type="radio" name="radio"><i></i>Formal Wear</label>
+						</div>
+						<div class="clearfix"> </div>
+					</div> -->
+					<div class="rem">
+					<div class="invert">
+					<div class="quantity"> 
+						<div class="quantity-select">                           
+							<label style="color: white;">Quantity:</label> 
+							&nbsp;
+							<div class="entry value-minus">&nbsp;</div>
+							<div class="entry value"><span>1</span></div>
+							<div class="entry value-plus active">&nbsp;</div>
+						</div></div>
+					</div>
+					</div><br>
+					<div class="occasion-cart">
+						<a class="item_add" href="/addtocart/{{ item.id }}">add to cart </a>
+					</div>
+					<!-- <div class="social">
+						<div class="social-left">
+							<p>Share On :</p>
+						</div>
+						<div class="social-right">
+							<ul class="social-icons">
+								<li><a href="#" class="facebook"></a></li>
+								<li><a href="#" class="twitter"></a></li>
+								<li><a href="#" class="g"></a></li>
+								<li><a href="#" class="instagram"></a></li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+					</div> -->
+				</div>
+				<div class="clearfix"> </div>
+				<!-- <div class="bootstrap-tab animated wow slideInUp" data-wow-delay=".5s">
+					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+						<ul id="myTab" class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href=" {% static '#home' %} " id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Description</a></li>
+							<li role="presentation"><a href=" {% static '#profile' %} " role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Reviews(2)</a></li>
+							<li role="presentation" class="dropdown">
+								<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Information <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+									<li><a href=" {% static '#dropdown1' %} " tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">cleanse</a></li>
+									<li><a href=" {% static '#dropdown2' %} " tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">fanny</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
+								<h5>Product Brief Description</h5>
+								<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+									<span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>
+							</div>
+							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
+								<div class="bootstrap-tab-text-grids">
+									<div class="bootstrap-tab-text-grid">
+										<div class="bootstrap-tab-text-grid-left">
+											<img src=" {% static 'images/4.png' %} " alt=" " class="img-responsive" />
+										</div>
+										<div class="bootstrap-tab-text-grid-right">
+											<ul>
+												<li><a href="#">Admin</a></li>
+												<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+											</ul>
+											<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
+												suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
+												vel eum iure reprehenderit.</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="bootstrap-tab-text-grid">
+										<div class="bootstrap-tab-text-grid-left">
+											<img src=" {% static 'images/5.png' %} " alt=" " class="img-responsive" />
+										</div>
+										<div class="bootstrap-tab-text-grid-right">
+											<ul>
+												<li><a href="#">Admin</a></li>
+												<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+											</ul>
+											<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
+												suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
+												vel eum iure reprehenderit.</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown1" aria-labelledby="dropdown1-tab">
+								<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+							</div>
+							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown2" aria-labelledby="dropdown2-tab">
+								<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //single -->
+<!-- single-related-products -->
+	<!-- <div class="single-related-products">
+		<div class="container">
+			<h3 class="animated wow slideInUp" data-wow-delay=".5s">Related Products</h3>
+			<p class="est animated wow slideInUp" data-wow-delay=".5s">Another Similar Option for you</p>
+			<div class="new-collections-grids">
+				<div class="col-md-3 new-collections-grid">
+					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".5s">
+						<div class="new-collections-grid1-image">
+							<a href=" {% static 'single.html' %} " class="product-image"><img src=" {% static 'images/8.jpg' %} " alt=" " class="img-responsive"></a>
+							<div class="new-collections-grid1-image-pos">
+								<a href=" {% static 'single.html' %} ">Quick View</a>
+							</div> -->
+							<!-- <div class="new-collections-grid1-right">
+								<div class="rating">
+									<div class="rating-left">
+										<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div> -->
+						<!-- </div>
+						<h4><a href=" {% static 'single.html' %} ">Running Shoes</a></h4>
+						<p>Vel illum qui dolorem eum fugiat.</p>
+						<div class="new-collections-grid1-left simpleCart_shelfItem">
+							<p><i>$280</i> <span class="item_price">$150</span><a class="item_add" href="#">add to cart </a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 new-collections-grid">
+					<div class="new-collections-grid1-sub">
+						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".6s">
+							<div class="new-collections-grid1-image">
+								<a href=" {% static 'single.html' %} " class="product-image"><img src=" {% static 'images/6.jpg' %} " alt=" " class="img-responsive"></a>
+								<div class="new-collections-grid1-image-pos">
+									<a href=" {% static 'single.html' %} ">Quick View</a>
+								</div> -->
+								<!-- <div class="new-collections-grid1-right">
+									<div class="rating">
+										<div class="rating-left">
+											<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div> -->
+							<!-- </div>
+							<h4><a href=" {% static 'single.html' %} ">Wall Lamp</a></h4>
+							<p>Vel illum qui dolorem eum fugiat.</p>
+							<div class="new-collections-grid1-left simpleCart_shelfItem">
+								<p><i>$480</i> <span class="item_price">$400</span><a class="item_add" href="#">add to cart </a></p>
+							</div>
+						</div>
+					</div>
+					<div class="new-collections-grid1-sub">
+						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".7s">
+							<div class="new-collections-grid1-image">
+								<a href=" {% static 'single.html' %} " class="product-image"><img src=" {% static 'images/9.jpg' %} " alt=" " class="img-responsive"></a>
+								<div class="new-collections-grid1-image-pos">
+									<a href=" {% static 'single.html' %} ">Quick View</a>
+								</div> -->
+								<!-- <div class="new-collections-grid1-right">
+									<div class="rating">
+										<div class="rating-left">
+											<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div> -->
+							<!-- </div>
+							<h4><a href=" {% static 'single.html' %} ">Wall Lamp</a></h4>
+							<p>Vel illum qui dolorem eum fugiat.</p>
+							<div class="new-collections-grid1-left simpleCart_shelfItem">
+								<p><i>$280</i> <span class="item_price">$150</span><a class="item_add" href="#">add to cart </a></p>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-3 new-collections-grid">
+					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".8s">
+						<div class="new-collections-grid1-image">
+							<a href=" {% static 'single.html' %} " class="product-image"><img src=" {% static 'images/11.jpg' %} " alt=" " class="img-responsive"></a>
+							<div class="new-collections-grid1-image-pos">
+								<a href=" {% static 'single.html' %} ">Quick View</a>
+							</div> -->
+							<!-- <div class="new-collections-grid1-right">
+								<div class="rating">
+									<div class="rating-left">
+										<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/2.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="rating-left">
+										<img src=" {% static 'images/1.png' %} " alt=" " class="img-responsive">
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div> -->
+						<!-- </div>
+						<h4><a href=" {% static 'single.html' %} ">Stones Bangles</a></h4>
+						<p>Vel illum qui dolorem eum fugiat.</p>
+						<div class="new-collections-grid1-left simpleCart_shelfItem">
+							<p><i>$340</i> <span class="item_price">$257</span><a class="item_add" href="#">add to cart </a></p>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div> -->
+<!-- //single-related-products -->
+<!-- footer -->
+<div class="footer">
+		<div class="container">
+			<div class="footer-grids">
+				<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".5s">
+					<h3 style="color: #97ee0c;">About Us</h3>
+					<p>We want to help you live a fit and healthy lifestyle! <span>We helped over 5000 customers live longer,happier and healthier lives.</span> </p>
+				</div>
+				<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".6s">
+					<h3 style="color: #97ee0c;">Contact Info</h3>
+					<ul>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>Ahmedabad City.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href=" {% static 'mailto:info@example.com' %} ">fitzeeforhealth@gmail.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+91 1234567890</li>
+					</ul>
+				</div>
+				<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".7s">
+					<h3 style="color: #97ee0c;">Useful Links</h3>
+
+					<ul>
+						<li><a href=" {% url 'exercise.html' %} ">Exercise</a></li>
+						<li><a href=" {% url 'blog.html' %} ">Blog</a></li>
+						<li><a href=" {% url 'products.html' %} ">Products</a></li>
+						<li><a href=" {% url 'mail.html' %} ">Contact Us</a></li>
+					</ul>
+
+					</ul>
+
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".8s">
+					<h3 style="color: #97ee0c;">Connect</h3>
+					<ul>
+						<li><a href="https://www.facebook.com/profile.php?id=100078447043673"><img src=" {% static 'images/face.png' %} "></a>
+							<a href="https://twitter.com/FitzeeH?t=FeZig36XOoYim0RNfjdv6Q&s=03"><img src=" {% static 'images/twitter.png' %} " height="38px" width="38px"></a> &nbsp;
+<!--							<a href="#"><img src=" {% static 'images/google.png' %} " height="38px" width="38px"></a> &nbsp;-->
+							<a href="https://www.instagram.com/fitzee_forhealth/"><img src=" {% static 'images/instagram.png' %} " height="38px" width="38px"></a>
+						</li>
+
+					</ul>
+					<h3 style="color: #97ee0c;">Sign Up</h3>
+                    <ul>
+                        <li>
+                            <a href=" {% url 'login.html' %} ">Login / </a>
+                            <a href=" {% url 'register.html' %} ">Register</a>
+                        </li>
+                    </ul>
+
+
+						<div class="clearfix"> </div>
+					</div>
+					<br>
+
+				</div>
+
+				<div class="clearfix"> </div>
+				<br>
+				<br>
+				<style>
+
+					textarea{
+						outline:none;
+						background:#f5f5f5;
+						border:1px solid #D2D2D2;
+						font-size:15px;
+						color:#212121;
+					}
+					input[type="submit"]{
+											outline:none;
+											padding:10px 0;
+											background:#97ee0c;
+											border:none;
+											width:30%;
+											font-size:1em;
+											color:#fff;
+											align-items: center;
+
+					}
+				</style>
+
+				<!--<div  class="rating" > -->
+			{% if request.session.log_user %}
+					<div class="animated wow slideInLeft" data-wow-delay=".5s">
+					<form style="border: 1px solid white;width: 100%; color: white; animated wow slideInLeft" data-wow-delay=".5s">
+                        <h3 style="text-align: center;color:#97ee0c;padding: 1%;">FEEDBACK FORM</h3>
+                        <br>
+
+                        <label style="margin-left: 1%;">Review:</label><br/>
+                        <div class="rating">
+            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
+            <label for="star5">☆</label>
+            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+            <label for="star4">☆</label>
+            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+            <label for="star3">☆</label>
+            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+            <label for="star2">☆</label>
+            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+            <label for="star1">☆</label>
+            <div class="clear"></div>
+        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <label style="margin-left: 1%;">Comment:</label>
+                        <textarea type="text" placeholder="Write Comment Here" style="margin-left: 1%; width:98%;padding: 1%;min-height:150px; color:black" required=""></textarea>
+                        <br><br>
+                        <input type="submit" value="Submit" style="margin-left: 1%;padding: 1%;text-align: center;margin-bottom: 1%;" >
+                    </form>
+					</div>
+			{% endif %}
+				<!-- </div> -->
+			</div>
+
+			<div class="footer-logo animated wow slideInUp" data-wow-delay=".5s">
+				<h2><a href=" {% url 'index.html' %} ">FITZEE <span>S T A Y  H E A L T H Y</span></a></h2>
+			</div>
+			<div class="copy-right animated wow slideInUp" data-wow-delay=".5s">
+				<p>&copy 2022 FITZEE. All rights reserved</p>
+					 <!-- Design by <a href="http://w3layouts.com/">W3layouts</a></p> -->
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- zooming-effect -->
+<script>
+									$('.value-plus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+										divUpd.text(newVal);
+									});
+
+									$('.value-minus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+										if(newVal>=1) divUpd.text(newVal);
+									});
+									</script>
+	<script src=" {% static 'js/imagezoom.js' %} "></script>
+<!-- //zooming-effect -->
+</body>
+</html>

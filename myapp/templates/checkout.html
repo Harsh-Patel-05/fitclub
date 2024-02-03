@@ -1,0 +1,182 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+  <div class="container">
+    <ol
+      class="breadcrumb breadcrumb1 animated wow slideInLeft"
+      data-wow-delay=".5s"
+    >
+      <li>
+        <a href=" {% url 'index.html' %} "
+          ><span class="glyphicon glyphicon-home" aria-hidden="true"></span
+          >Home</a
+        >
+      </li>
+      <li class="active">Checkout</li>
+    </ol>
+  </div>
+</div>
+<!-- //breadcrumbs -->
+<!-- checkout -->
+<div class="checkout">
+  <div class="container">
+    <h3 class="animated wow slideInLeft" data-wow-delay=".5s">
+      Your shopping cart contains: <span>3 Products</span>
+    </h3>
+    <div class="checkout-right animated wow slideInUp" data-wow-delay=".5s">
+      <table class="timetable_sub">
+        <thead>
+          <tr>
+            <th>SL No.</th>
+            <th>Product</th>
+            <th>Quality</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        {% for data in products %}{% for d in cart %} {% if forloop.counter ==
+        forloop.parentloop.counter %}
+        <tr class="rem1">
+          <td class="invert">{{ forloop.counter }}</td>
+          <td class="invert-image">
+            <a href=" #"
+              ><img
+                src="/media/{{ data.i_photo }}"
+                alt=" "
+                class="img-responsive"
+            /></a>
+          </td>
+          <td class="invert">
+            <div class="quantity">
+              <div class="quantity-select">
+                <form action="/ucart/{{ data.id }}" method="post">
+                  {% csrf_token %}
+                  <input
+                    type="hidden"
+                    name="price"
+                    value="{{ data.i_price }}"
+                  />
+                  <input
+                    type="submit"
+                    value="-"
+                    id="quantityminus_{{data.id}}"
+                    onclick="AddQuantity($(this).attr('id'));"
+                    style="height: 50px; width: 30px"
+                  />&nbsp;
+                  <input
+                    type="number"
+                    name="qua"
+                    min="1"
+                    class="entry value"
+                    value="{{ d.o_quantity }}"
+                    id="quantity_{{data.id}}"
+                  />
+                  <input
+                    type="submit"
+                    value="+"
+                    id="quantityplus_{{data.id}}"
+                    onclick="AddQuantity($(this).attr('id'));"
+                    style="height: 50px; width: 30px"
+                  />&nbsp;
+                </form>
+              </div>
+            </div>
+          </td>
+          <td class="invert">{{ data.i_name }}</td>
+          <td class="invert" class="price" id="price_{{ data.id }}">
+            {{ data.i_price }}
+          </td>
+          <td id="totalprice_{{ data.id }}">{{ d.total }}</td>
+          <td class="invert">
+            <div class="rem">
+              <a href="/deleteproduct/{{ data.id }}"
+                ><div class="close1"></div
+              ></a>
+            </div>
+          </td>
+        </tr>
+        {% endif %} {% endfor %}{% endfor %}
+        <!--quantity-->
+        <script type="text/Javascript">
+          function AddQuantity(id){
+          	var btn = id.split("_");
+          	var data = btn[0];
+          	var pid = id.split("_").pop();
+          	//var grandtotal=0;
+          	if(data=='quantityminus'){
+          		var qnt = parseInt(document.getElementById('quantity_'+pid).value);
+          		var price = parseInt(document.getElementById('price_'+pid).innerText);
+
+          		if(qnt==1){
+          			document.getElementById('quantity_'+pid).value=1
+          			document.getElementById('totalprice_'+pid).innerText=1*price;
+          			//grandtotal+=1*price;
+          			//document.getElementById('grandtotal').innerText=grandtotal
+          		}
+          		else{
+          			document.getElementById('quantity_'+pid).value=qnt-1;
+          			document.getElementById('totalprice_'+pid).innerText=(qnt-1)*price;
+          			//grandtotal-=(qnt-1)*price;
+          			//document.getElementById('grandtotal').innerText=grandtotal
+          		}
+          	}
+          	else if(data=='quantityplus'){
+          		var qnt = parseInt(document.getElementById('quantity_'+pid).value);
+          		var price = parseInt(document.getElementById('price_'+pid).innerText);
+          		document.getElementById('quantity_'+pid).value=qnt+1;
+          		document.getElementById('totalprice_'+pid).innerText=(qnt+1)*price;
+          		//grandtotal+=(qnt+1)*price;
+          		//document.getElementById('grandtotal').innerText=grandtotal
+          	}
+          }
+        </script>
+        <!--quantity-->
+      </table>
+    </div>
+    <br />
+    <div class="checkout-left">
+      <form action="/placeorders" method="post">
+        {% csrf_token %}
+        <label style="color: #97ee0c; font-size: 30px; margin-left: 650px"
+          >Total Bill: {{ tamount.total__sum }}</label
+        ><br />
+        <label
+          style="color: #97ee0c; font-size: 30px; margin-left: 650px"
+          id="grandtotal"
+        ></label
+        ><br />
+
+        <textarea name="address" rows="2" cols="60" style="margin-left: 640px">
+{{ login  }}</textarea
+        >
+        <input type="hidden" name="tamount" value="{{ tamount.total__sum }}" />
+        <br /><br />
+        <label style="color: #97ee0c; font-size: 30px; margin-left: 650px"
+          >Payment Option:</label
+        >
+        <br />
+        <input
+          type="radio"
+          name="cod"
+          style="margin-left: 650px"
+        />&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: white">CASH ON DELIVERY</b
+        ><br /><br />
+        <input
+          type="submit"
+          value="Shop Now"
+          style="
+            font-size: 20px;
+            padding: 5px 100px;
+            background-color: #97ee0c;
+            margin-left: 640px;
+          "
+        />
+      </form>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<!-- //checkout -->
+{% endblock %}

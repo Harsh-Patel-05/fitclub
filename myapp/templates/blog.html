@@ -12,38 +12,6 @@
 <!--typography-page -->
 	<div class="container">
 	{% for data in blog %}
-		<br><br><br>
-			<style>
-				.grid-container {
-					display: grid;
-					grid-template-columns: auto ;
-					gap: 10px;
-					/* background-color: #2196F3; */
-					padding: 10px;
-				}
-				
-				.grid-container > div {
-					background-color: white;
-					text-align: center;
-					padding: 10px 10px;
-					/* font-size: 30px; */
-				}
-			
-				a {
-				color:#619906;
-				}
-				p{
-					/* font-family:Georgia, 'Times New Roman', Times, serif; */
-					padding:1%;
-					
-				}
-				
-				.item1,.item2,.item3,.item4{
-					height: 200px;
-					background-color: #2c3e50 ;
-					background-image:linear-gradient(#2c3e50,#bdc3c7,white) ;
-				}
-			</style>
 			<div class="grid-container">
 				<div class="item1" style="height:600px"><img src="media/{{ data.b_media }}" height="300px"width="350px"><br>
 					<b style="font-size: 20px;color: navy;">
@@ -60,28 +28,6 @@
 			{% if request.session.log_user %}
 				<form action = "{% url 'viewblg' %} " method="post" enctype="multipart/form-data" style="border: 1px solid white;width: 100%;background-image:url( {% static 'images/blbg.png' %} );">
 					{% csrf_token %}
-					<style>
-						input[type="submit"]{
-							outline:none;
-							padding:10px 0;
-							background:#619906;
-							border:none;
-							width:30%;
-							font-size:1em;
-							color:#fff;
-							align-items: center;
-						}						
-						input[type="text"],input[type="email"],textarea{
-							outline:none;
-							background:#f5f5f5;
-							border:1px solid #D2D2D2;
-							font-size:15px;
-							color:#212121;
-						}
-						input[type="file"]{
-							display: none;
-						}
-					</style>
 					<h1 style="text-align: center;color:#97ee0c;padding: 1%;">ADD&nbsp; BLOG</h1>
 					<br>
 					<input type="text" placeholder="Write Your Name" style="margin-left: 1%; width:98%;padding: 1%;" name="wr_name" required="" >

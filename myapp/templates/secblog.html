@@ -1,43 +1,51 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <!-- breadcrumbs -->
 <div class="breadcrumbs">
-    <div class="container">
-        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-            <li><a href=" {% url 'index.html' %} "><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-            <li class="active">Blog</li>
-        </ol>
-    </div>
+  <div class="container">
+    <ol
+      class="breadcrumb breadcrumb1 animated wow slideInLeft"
+      data-wow-delay=".5s"
+    >
+      <li>
+        <a href=" {% url 'index.html' %} "
+          ><span class="glyphicon glyphicon-home" aria-hidden="true"></span
+          >Home</a
+        >
+      </li>
+      <li class="active">Blog</li>
+    </ol>
+  </div>
 </div>
 <!-- //breadcrumbs -->
 <!--typography-page -->
 <div class="typo">
-    <div class="container">
-		<div class="single-page">
-		<style>
-			.article-content{
-				margin: 0;
-				padding: 0;
-    			border: 0;
-    			font-size: 100%;
-    			font: inherit;
-    		vertical-align: baseline;
-			display: block;
-			background-color: #F0EFEE;
-			}
-			.article-content img{
-				width: 100%;
-				margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-	height:fit-content;
-			}
-			/* img{
+  <div class="container">
+    <div class="single-page">
+      <style>
+        .article-content {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-size: 100%;
+          font: inherit;
+          vertical-align: baseline;
+          display: block;
+          background-color: #f0efee;
+        }
+        .article-content img {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-size: 100%;
+          font: inherit;
+          vertical-align: baseline;
+          height: fit-content;
+        }
+        /* img{
 				max-width:100%
 			} */
-			/* h3{
+        /* h3{
 				margin: 0;
     padding: 0;
     border: 0;
@@ -53,17 +61,17 @@
     font-weight: bold;
 	background-color: #F0EFEE;
 			} */
-			.artical-content p {
-    font: normal 16px/26px 'Open Sans', sans-serif,Helvetica,sans-serif;
-    /* color: #9b9b9b; */
-    padding: 17px 0px;
-    font-weight: 400;
-    
-    font: inherit;
-    vertical-align: baseline;
-	color: black;
-}
-/* p{
+        .artical-content p {
+          font: normal 16px/26px "Open Sans", sans-serif, Helvetica, sans-serif;
+          /* color: #9b9b9b; */
+          padding: 17px 0px;
+          font-weight: 400;
+
+          font: inherit;
+          vertical-align: baseline;
+          color: black;
+        }
+        /* p{
 	display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -71,29 +79,38 @@
     margin-inline-end: 0px;
 	
 } */
-.single-page{
-	margin-top: 1em;
-	background: #fff;
-	padding:2%;
-}
-		</style>
-        <div class="article-content">
-			<img src="/media/{{ blog.b_media }}">
-			<h3 style="font: inherit;vertical-align: baseline;display: block;font-size: 3em;font-weight: bold;color: navy;margin: 1%;text-align: center;"><u>{{ blog.b_name }}</u></h3>
-			<br>
-			<p style="text-align: center; font-size: larger;">
-				{{ blog.b_desc1 }}
-			</p>
-			<br>
-			<p style="text-align: center; font-size: larger; margin: 1%;">
-				{{ blog.b_desc2 }}
-			</p>
-				<p style="margin-left: 85%;font-size: 1.5em;" >
-					-{{ blog.wr_name }}
-				</p>
-		</div>
-        </div>
+        .single-page {
+          margin-top: 1em;
+          background: #fff;
+          padding: 2%;
+        }
+      </style>
+      <div class="article-content">
+        <img src="/media/{{ blog.b_media }}" />
+        <h3
+          style="
+            font: inherit;
+            vertical-align: baseline;
+            display: block;
+            font-size: 3em;
+            font-weight: bold;
+            color: navy;
+            margin: 1%;
+            text-align: center;
+          "
+        >
+          <u>{{ blog.b_name }}</u>
+        </h3>
+        <br />
+        <p style="text-align: center; font-size: larger">{{ blog.b_desc1 }}</p>
+        <br />
+        <p style="text-align: center; font-size: larger; margin: 1%">
+          {{ blog.b_desc2 }}
+        </p>
+        <p style="margin-left: 85%; font-size: 1.5em">-{{ blog.wr_name }}</p>
+      </div>
     </div>
+  </div>
 </div>
 <!-- //typography-page -->
 {% endblock %}
